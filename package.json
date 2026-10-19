@@ -1,0 +1,15 @@
+{
+  "name": "ai-interview-prep-kit",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "npm run dev:client",
+    "dev:client": "npm --workspace @interview-prep/client run dev",
+    "dev:server": "npm --workspace @interview-prep/server run dev",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm --workspace @interview-prep/server run test",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "evaluate": "npm --workspace @interview-prep/server run evaluate --"
+  }
+}
