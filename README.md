@@ -16,6 +16,8 @@ server/
 
 ## Build roadmap and decisions
 
+Detailed decisions are recorded in [DECISIONS.md](./DECISIONS.md).
+
 ### Step 1 - Foundation (complete)
 
 **Decision:** Make the kit format, coverage checking, and scheduling independent of the user interface and LLM.
@@ -29,11 +31,17 @@ server/
 - Deterministic schedule allocation in `src/services/schedule.ts`
 - Automated tests for all three areas
 
-### Step 2 - Requirement extraction (next)
+### Step 2 - Requirement extraction (complete)
 
-**Decision:** Add one `generation` service with a fake local implementation first, then connect it to a real LLM provider.
+**Decision:** Start with a deterministic local extractor behind an async interface, then add an LLM-backed implementation.
 
-**Why:** It lets us test the end-to-end pipeline before an API key, rate limit, or provider outage can block development.
+**Why:** It avoids invented requirements, handles thin job descriptions honestly, and lets us test the pipeline before an API key, rate limit, or provider outage can block development.
+
+**Completed:**
+
+- Extract role title, seniority, location, responsibilities, requirements, priority, and kind.
+- Keep requirement IDs stable in source order.
+- Add automated tests for normal and thin job descriptions.
 
 ## Commands
 
