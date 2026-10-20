@@ -27,3 +27,15 @@ This file records the decisions made while building the assessment. Each new mil
 - It identifies role title, seniority, location, responsibilities, requirements, priority, and category.
 - It reports warnings for thin descriptions instead of fabricating information.
 - Stable requirement IDs are assigned in source order.
+
+## Step 3 - Question generation
+
+**Decision:** Generate category-specific questions through a `QuestionGenerator` interface, with a deterministic local implementation first.
+
+**Reason:** Every generated question must reference its covered requirement ID. A stable baseline makes coverage checking objective, while the interface lets a future LLM implementation add question variety without changing the rest of the pipeline.
+
+**Result:**
+
+- Every generated question has a stable ID and exactly references its source requirement.
+- Technical, behavioural, domain, and system-design requirements map to appropriate question categories.
+- Difficulty is calculated in code from priority, seniority signals, and system-design complexity.

@@ -43,6 +43,18 @@ Detailed decisions are recorded in [DECISIONS.md](./DECISIONS.md).
 - Keep requirement IDs stable in source order.
 - Add automated tests for normal and thin job descriptions.
 
+### Step 3 - Category-specific question generation (complete)
+
+**Decision:** Generate stable, category-specific baseline questions locally before adding an LLM-backed generator.
+
+**Why:** Each question must identify the requirement it covers. This makes coverage a code-based decision and prevents an LLM response from breaking the kit's required references.
+
+**Completed:**
+
+- Generate technical, behavioural, company-fit, and system-design questions.
+- Link every question to its exact source requirement ID.
+- Calculate deterministic question difficulty and add automated tests.
+
 ## Commands
 
 ```bash
