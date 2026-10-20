@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateKit } from "./kit";
+import { validateKit } from "./kit.js";
 
 function validKit() {
   return {
